@@ -1,0 +1,774 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="banner">
+    <div class="banner_left"></div>
+    <div class="banner_right"></div>
+</div>
+
+<div class="con1">
+    <div class="ele_img1"><img src="image/img2.gif" /></div>
+
+    <div class="con1_img1">
+        <img src="image/img3.png" />
+    </div>
+
+    <div class="con1_img2">
+        <img src="image/img4.png" />
+    </div>
+
+    <div class="con1_img3">
+        <img src="image/img5.png" />
+    </div>
+
+    <div class="con1_title">World under the "sea"</div>
+    <div class="con1_title2">Online bias you can not see</div>
+</div>
+
+<div class="con2">
+    <div class="ele_img2"><img src="image/img2.gif"/></div>
+    <div class="con2_img1">
+        <img src="image/img7.png"/>
+        <div class="ele1"></div>
+        <div class="ele2"></div>
+        
+        <div class="con2_img3 con2_imgs">
+            <img src="image/img9.png"/>
+            <div class="con2_text">
+                Transgender Athletes in Women's Sports: Fair Competition Under Fire
+            </div>
+            <img src="image/crush.gif" class="crushGif3 crushGif" style="display: none" />
+        </div>
+        <div class="con2_img4 con2_imgs">
+            <img src="image/img10.png"/>
+            <div class="con2_text">
+                Government Mandates Third-Gender Restrooms in Public Spaces
+            </div>
+            <img src="image/crush.gif" class="crushGif4 crushGif" style="display: none" />
+        </div>
+        <div class="con2_img5 con2_imgs">
+            <img src="image/img11.png"/>
+            <div class="con2_text">
+                "Man Identifying as Female Allowed in Women's Locker Room, Public Panic Ensues
+            </div>
+            <img src="image/crush.gif" class="crushGif5 crushGif" style="display: none" />
+        </div>
+        <div class="con2_img6 con2_imgs">
+            <img src="image/img12.png"/>
+            <div class="con2_text">
+                Passport Application Denied Due to Mismatch Between Gender Identity and Biological Sex
+            </div>
+            <img src="image/crush.gif" class="crushGif6 crushGif" style="display: none" />
+        </div>
+        <div class="con2_img7 con2_imgs">
+            <img src="image/img13.png"/>
+            <div class="con2_text">
+                Corporate Culture Pushes for 'Gender Neutrality,' Challenging Traditional Roles
+            </div>
+            <img src="image/crush.gif" class="crushGif7 crushGif" style="display: none" />
+        </div>
+        <div class="con2_img8 con2_imgs">
+            <img src="image/img14.png"/>
+            <div class="con2_text">
+                Education Reform on Gender Identity Causes Parental Concern Over 'Gender Confusion'
+            </div>
+            <img src="image/crush.gif" class="crushGif8 crushGif" style="display: none" />
+        </div>
+    </div>
+    <div class="con2_img2"><img src="image/img8.gif"/></div>
+    <div class="next1"><img src="image/next.png"/></div>
+</div>
+
+<div class="con3">
+    <video src="./music/sp.mp4" autoplay loop muted></video>
+    <div class="con3_img2"><img src="image/img8_1.gif"/></div>
+    <div class="con3_img3"><p>mouse wheel</p></div>
+    <div class="ele_img3"><img src="image/img2.gif"/></div>
+    <div class="next2"><img src="image/next.png"/></div>
+</div>
+<div class="con4">
+    <div class="ele_img4"><img src="image/img2.gif"/></div>
+    <div class="con4_img1"><img src="image/img16.gif"/></div>
+    <div class="con4_img2"><img src="image/img17.gif"/></div>
+    <div class="con4_img3"><img src="image/img18.gif"/></div>
+
+
+    <div class="con4_img4"><img src="image/img19.png"/></div>
+    <div class="con4_img5"><img src="image/img20.png"/></div>
+
+
+    <div class="con4_img6"><img src="image/img21.png"/></div>
+    <div class="con4_img7"><img src="image/img22.png"/></div>
+    <div class="con4_img8"><img src="image/img23.png"/></div>
+
+
+    <div class="go_home"><img src="image/icons_home.png"/></div>
+</div>
+
+<!-- Adding canvas elements for static content and meteor effect -->
+<canvas id="meteorCanvas" style="position: absolute; top: 0; left: 0; z-index: 101; pointer-events: none;"></canvas>
+
+<audio src="./music/home.mp3" loop preload="auto" class="m1"></audio>
+<audio src="./music/m1.mp3" loop preload="auto" class="m2"></audio>
+<audio src="./music/m2.mp3" loop preload="auto" class="m3"></audio>
+<audio src="./music/m3.mp3" loop preload="auto" class="m4"></audio>
+<audio src="./music/chuanci.mp3" preload="auto" class="m5"></audio>
+<audio src="./music/click.mp3" preload="auto" class="m6"></audio>
+<audio src="./music/shihua.mp3" preload="auto" class="m7"></audio>
+
+<script>
+    const biasTexts = [
+        "Algorithmic Bias", 
+        "Filter Bubbles", 
+        "Echo Chambers", 
+        "Confirmation Bias", 
+        "Representation Bias"
+    ];
+
+    function generateRandomText() {
+        const con1_title = document.querySelector('.con1_title');
+        const con1_title2 = document.querySelector('.con1_title2');
+        const randomTitle = biasTexts[Math.floor(Math.random() * biasTexts.length)];
+        const randomSubtitle = biasTexts[Math.floor(Math.random() * biasTexts.length)];
+        con1_title.innerHTML = randomTitle;
+        con1_title2.innerHTML = randomSubtitle;
+    }
+
+
+    document.addEventListener('mousemove', function (event) {
+        let ele_img1 = document.querySelector('.ele_img1');
+        let ele_img2 = document.querySelector('.ele_img2');
+        let ele_img3 = document.querySelector('.ele_img3');
+        let ele_img4 = document.querySelector('.ele_img4');
+        const mouseX = event.clientX;
+        const mouseY = event.clientY;
+        ele_img1.style.left = mouseX - 40 + 'px';
+        ele_img1.style.top = mouseY - 40 + 'px';
+        ele_img2.style.left = mouseX - 40 + 'px';
+        ele_img2.style.top = mouseY - 40 + 'px';
+        ele_img3.style.left = mouseX - 40 + 'px';
+        ele_img3.style.top = mouseY - 40 + 'px';
+        ele_img4.style.left = mouseX - 40 + 'px';
+        ele_img4.style.top = mouseY - 40 + 'px';
+    });
+
+    let m6 = document.querySelector('.m6');
+    document.onclick = function () {
+        m6.play();
+    };
+
+    // let con2_imgs = document.querySelectorAll('.con2_imgs');
+    // let con2_text = document.querySelectorAll('.con2_text');
+
+    // for (let i = 0; i < con2_imgs.length; i++) {
+    //     con2_imgs[i].onclick = function () {
+    //         for (let j = 0; j < con2_text.length; j++) {
+    //             con2_text[j].style.display = 'none';
+    //         }
+    //         con2_text[i].style.display = 'block';
+    //     };
+    // }
+
+
+    let con2_imgs = document.querySelectorAll('.con2_imgs');
+    let con2_text = document.querySelectorAll('.con2_text');
+    let isTextVisibleArray = new Array(con2_imgs.length).fill(false); // 跟踪每个 con2_imgs 的文本显示状态
+
+    // 为每个 con2_imgs 元素添加点击事件
+    con2_imgs.forEach((imgContainer, index) => {
+        let textElement = imgContainer.querySelector('.con2_text');
+        let gifElement = imgContainer.querySelector('.crushGif');
+
+        imgContainer.addEventListener('click', function() {
+            if (!isTextVisibleArray[index]) {
+                // 显示文本并隐藏 GIF
+                textElement.style.display = 'block';
+                gifElement.style.display = 'none'; // 确保 GIF 隐藏
+                isTextVisibleArray[index] = true; // 设置状态为 "显示文本"
+            } else {
+                // 隐藏文本并显示 GIF
+                textElement.style.display = 'none';
+
+                // 确保 GIF 每次都重新加载
+                gifElement.src = "image/crush.gif?" + new Date().getTime();
+                gifElement.style.display = 'block';
+
+                // 设置定时器，GIF 播放完成后隐藏
+                let gifDuration = 1000; // 假设 GIF 播放时间为 1 秒
+                setTimeout(function() {
+                    gifElement.style.display = 'none';
+                    isTextVisibleArray[index] = false; // 重置状态，等待下一次点击
+                }, gifDuration);
+            }
+        });
+    });
+
+    // 为 ele1 和 ele2 添加点击事件，重置文本显示和状态
+    let ele1 = document.querySelector('.ele1');
+    let ele2 = document.querySelector('.ele2');
+    let m7 = document.querySelector('.m7')
+
+    function hideAllTextAndResetState() {
+        con2_imgs.forEach((imgContainer, i) => {
+            let textElement = imgContainer.querySelector('.con2_text');
+            let gifElement = imgContainer.querySelector('.crushGif');
+
+            // 隐藏所有文本
+            textElement.style.display = 'none';
+            gifElement.style.display = 'none'; // 确保 GIF 也被隐藏
+            isTextVisibleArray[i] = false; // 重置状态
+        });
+    }
+
+    ele1.onclick = function () {
+        hideAllTextAndResetState(); // 当 ele1 被点击时，隐藏所有文本并重置状态
+        m7.play();
+    };
+
+    ele2.onclick = function () {
+        hideAllTextAndResetState(); // 当 ele2 被点击时，隐藏所有文本并重置状态
+        m7.play();
+    };
+
+
+
+    let con1_img1 = document.querySelector('.con1_img1');
+    let con1_img2 = document.querySelector('.con1_img2');
+    let con1_img3 = document.querySelector('.con1_img3');
+    let go_home = document.querySelector('.go_home');
+    let next1 = document.querySelector('.next1');
+    let next2 = document.querySelector('.next2');
+
+    con1_img1.onclick = function () {
+        closePage(2);
+    };
+    con1_img2.onclick = function () {
+        closePage(3);
+    };
+    con1_img3.onclick = function () {
+        closePage(4);
+    };
+    go_home.onclick = function () {
+        closePage(1);
+    };
+    next1.onclick = function () {
+        closePage(3);
+    };
+    next2.onclick = function () {
+        closePage(4);
+    };
+
+
+
+    let targetElements = [];
+    let currentTargetIndex = 0;
+    let animationRunning = true;
+
+    // 在 closePage 函数中，根据当前页面设置目标元素
+    function closePage(index) {
+        let con1 = document.querySelector('.con1');
+        let con2 = document.querySelector('.con2');
+        let con3 = document.querySelector('.con3');
+        let con4 = document.querySelector('.con4');
+        let m1 = document.querySelector('.m1');
+        let m2 = document.querySelector('.m2');
+        let m3 = document.querySelector('.m3');
+        let m4 = document.querySelector('.m4');
+        
+        // 隐藏所有页面并暂停背景音乐
+        con1.style.display = 'none';
+        con2.style.display = 'none';
+        con3.style.display = 'none';
+        con4.style.display = 'none';
+        m1.pause();
+        m2.pause();
+        m3.pause();
+        m4.pause();
+        
+        // 切换到指定页面
+        switch (index) {
+            case 1:
+                animationRunning = true;
+                con1.style.display = 'block';
+                m1.play();
+                // 切换到 con1 时，设定 con1 的目标元素
+                targetElements = [
+                    document.querySelector('.con1_img1 img'),
+                    document.querySelector('.con1_img2 img'),
+                    document.querySelector('.con1_img3 img')
+                ];
+                currentTargetIndex = 0;  // 重置为第一个目标
+                break;
+            case 2:
+                animationRunning = true;
+                con2.style.display = 'block';
+                m2.play();
+
+                
+                let con2_text = document.querySelectorAll('.con2_text');
+                for (let i = 0; i < con2_text.length; i++) {
+                    con2_text[i].style.display = 'none';  // 重置为 none
+                }
+
+
+                // 切换到 con2 时，设定 con2 的目标元素
+                targetElements = [
+                    document.querySelector('.con2_img3 img'),
+                    document.querySelector('.con2_img3 .con2_text'),
+                    document.querySelector('.con2_img4 img'),
+                    document.querySelector('.con2_img4 .con2_text'),
+                    document.querySelector('.con2_img5 img'),
+                    document.querySelector('.con2_img5 .con2_text'),
+                    document.querySelector('.con2_img6 img'),
+                    document.querySelector('.con2_img6 .con2_text'),
+                    document.querySelector('.con2_img7 img'),
+                    document.querySelector('.con2_img7 .con2_text'),
+                    document.querySelector('.con2_img8 img'),
+                    document.querySelector('.con2_img8 .con2_text'),
+                    document.querySelector('.ele1'),
+                    document.querySelector('.next1 img')
+                ];
+                currentTargetIndex = 0;  // 重置为第一个目标
+                break;
+            case 3:
+                animationRunning = false;
+                con3.style.display = 'block';
+                m3.play();
+                break;
+            case 4:
+                animationRunning = true;
+                con4.style.display = 'block';
+                m4.play();
+                targetElements = [
+                    document.querySelector('.con4_img3 img'),
+                    document.querySelector('.con4_img6 img'),
+                    document.querySelector('.con4_img7 img'),
+                    document.querySelector('.con4_img8 img'),
+                    document.querySelector('.go_home img')
+                ];
+                currentTargetIndex = 0;  // 重置为第一个目标
+                break;
+        }
+
+        if (animationRunning) {
+            animate();  // 继续或重启流星动画
+        }
+
+        bindTargetElementClicks();  // 重新绑定点击事件
+    }
+
+    // 重新绑定目标元素的事件
+    function bindTargetElementClicks() {
+        targetElements.forEach((targetElement, index) => {
+            if (targetElement === document.querySelector('.con4_img3 img')) {
+                // 对于 con4_img3 img，使用鼠标悬停事件
+                targetElement.addEventListener('mouseenter', function(event) {
+                    if (index === currentTargetIndex) {
+                        // 如果按顺序悬停在 con4_img3 img 上，则切换到下一个目标
+                        currentTargetIndex = (currentTargetIndex + 1) % targetElements.length;
+                    } 
+                });
+            } else {
+                // 对于其他元素，使用点击事件
+                targetElement.addEventListener('click', function(event) {
+                    if (index === currentTargetIndex) {
+                        // 如果按顺序点击，则切换到下一个目标
+                        currentTargetIndex = (currentTargetIndex + 1) % targetElements.length;
+                    } 
+                });
+            }
+        });
+    }
+
+    document.querySelector('.con3_img2').addEventListener('mouseenter', function() {
+        document.querySelector('.con3_img3').style.display = 'block'; // 鼠标移入时显示
+    });
+
+    document.querySelector('.con3_img2').addEventListener('mouseleave', function() {
+        document.querySelector('.con3_img3').style.display = 'none'; // 鼠标移出时隐藏
+    });
+
+
+
+
+    let banner = document.querySelector('.banner');
+    let banner_left = document.querySelector('.banner_left');
+    let banner_right = document.querySelector('.banner_right');
+
+    banner.onclick = function () {
+        banner_left.style.left = '-100%';
+        banner_right.style.right = '-100%';
+        setTimeout(() => {
+            closePage(1);
+            banner.style.display = 'none';
+        }, 600);
+    };
+
+    let con3_box = document.querySelector('.con3');
+    let con3Number = 30;
+    let con3_img2 = document.querySelector('.con3_img2');
+
+    con3_box.addEventListener('wheel', function (event) {
+        if (event.wheelDeltaY < 0) {
+            if (con3Number < 60) {
+                con3Number = con3Number + 0.8;
+            } else {
+                con3Number = 60;
+            }
+        } else {
+            if (con3Number > 30) {
+                con3Number = con3Number - 0.8;
+            } else {
+                con3Number = 30;
+            }
+        }
+        con3_img2.style.width = con3Number + '%';
+    });
+
+    let con4_img6 = document.querySelector('.con4_img6');
+    let con4_img7 = document.querySelector('.con4_img7');
+    let con4_img8 = document.querySelector('.con4_img8');
+    let con4_img4 = document.querySelector('.con4_img4');
+
+    con4_img6.onclick = function () {
+        con4_img4.classList.add('img_active');
+        con4_img6.style.left = '60%';
+        con4_img6.style.top = '30%';
+        setTimeout(function () {
+            con4_img4.classList.remove('img_active');
+            con4_img6.style.left = '40%';
+            con4_img6.style.top = '20%';
+        }, 2000);
+    };
+
+    con4_img7.onclick = function () {
+        con4_img4.classList.add('img_active');
+        con4_img7.style.left = '60%';
+        con4_img7.style.top = '30%';
+        setTimeout(function () {
+            con4_img4.classList.remove('img_active');
+            con4_img7.style.left = '30%';
+            con4_img7.style.top = '50%';
+        }, 2000);
+    };
+
+    con4_img8.onclick = function () {
+        con4_img4.classList.add('img_active');
+        con4_img8.style.left = '60%';
+        con4_img8.style.top = '30%';
+        setTimeout(function () {
+            con4_img4.classList.remove('img_active');
+            con4_img8.style.left = '50%';
+            con4_img8.style.top = '65%';
+        }, 2000);
+    };
+
+
+    function getTargetPosition() {
+            const targetElement = targetElements[currentTargetIndex]; // 根据当前索引获取目标元素
+            const rect = targetElement.getBoundingClientRect();
+            const targetX = rect.left + rect.width / 2;
+            const targetY = rect.top + rect.height / 2;
+            return { targetX, targetY };
+        }
+
+    const meteorCanvas = document.getElementById('meteorCanvas');
+    const meteorCtx = meteorCanvas.getContext('2d');
+    meteorCanvas.width = window.innerWidth;
+    meteorCanvas.height = window.innerHeight;
+
+    let meteors = [];
+
+    // // 创建流星
+    // function createMeteor(mouseX, mouseY) {
+    //     const { targetX, targetY } = getTargetPosition();  // 锁定目标
+    //     const meteor = {
+    //         x: mouseX,
+    //         y: mouseY,
+    //         speedX: (targetX - mouseX) / 200,
+    //         speedY: (targetY - mouseY) / 200,
+    //         size: Math.random() * 5 + 3,
+    //         opacity: 1
+    //     };
+    //     meteors.push(meteor);
+    // }
+
+    // // 创建流星
+    // function createMeteor(mouseX, mouseY) {
+    //     const { targetX, targetY } = getTargetPosition();  // 锁定目标
+    //     const meteor = {
+    //         x: mouseX,  // 当前流星的 X 坐标
+    //         y: mouseY,  // 当前流星的 Y 坐标
+    //         targetX: targetX,  // 流星的目标 X 坐标
+    //         targetY: targetY,  // 流星的目标 Y 坐标
+    //         speedX: (targetX - mouseX) / 300,  // 水平速度，朝向目标
+    //         speedY: (targetY - mouseY) / 300,  // 垂直速度，朝向目标
+    //         size: Math.random() * 5 + 3,       // 流星的大小
+    //         opacity: 1,                        // 初始透明度
+    //         trail: []                          // 存储历史位置的数组，用于绘制轨迹
+    //     };
+    //     meteors.push(meteor);  // 将流星添加到流星数组中
+    // }
+
+
+    // // 绘制流星
+    // function drawMeteor(meteor) {
+    //     const gradient = meteorCtx.createRadialGradient(meteor.x, meteor.y, 0, meteor.x, meteor.y, meteor.size * 3);
+    //     gradient.addColorStop(0, `rgba(255, 0, 0, ${meteor.opacity})`);
+    //     gradient.addColorStop(1, 'rgba(255, 0, 0, 0)');
+    //     meteorCtx.beginPath();
+    //     meteorCtx.arc(meteor.x, meteor.y, meteor.size, 0, Math.PI * 2);
+    //     meteorCtx.fillStyle = gradient;
+    //     meteorCtx.fill();
+    //     meteorCtx.closePath();
+    // }
+
+    // // 绘制流星和拖尾
+    // function drawMeteor(meteor) {
+    //     // 绘制拖尾
+    //     meteor.trail.forEach((pos, index) => {
+    //         const trailOpacity = (index + 1) / meteor.trail.length * meteor.opacity;  // 拖尾透明度根据流星变化
+    //         meteorCtx.beginPath();
+    //         meteorCtx.moveTo(pos.x, pos.y);
+    //         meteorCtx.lineTo(meteor.x, meteor.y);
+    //         meteorCtx.strokeStyle = `rgba(255, 0, 0, ${trailOpacity})`;  // 拖尾颜色和透明度
+    //         meteorCtx.lineWidth = meteor.size * (1 - trailOpacity);  // 拖尾随透明度逐渐变细
+    //         meteorCtx.stroke();
+    //         meteorCtx.closePath();
+    //     });
+
+    //     // 绘制流星本体
+    //     meteorCtx.beginPath();
+    //     meteorCtx.arc(meteor.x, meteor.y, meteor.size, 0, Math.PI * 2);
+    //     meteorCtx.fillStyle = `rgba(255, 0, 0, ${meteor.opacity})`;  // 流星本体颜色和透明度
+    //     meteorCtx.fill();
+    //     meteorCtx.closePath();
+    // }
+
+    // // 更新流星位置和透明度
+    // function updateMeteor(meteor) {
+    //     // 保存当前的位置到拖尾数组中
+    //     meteor.trail.push({ x: meteor.x, y: meteor.y });
+
+    //     // 控制拖尾的长度，避免拖尾过长
+    //     if (meteor.trail.length > 20) {
+    //         meteor.trail.shift();  // 删除最早的位置点
+    //     }
+
+    //     // 更新流星的位置
+    //     meteor.x += meteor.speedX;
+    //     meteor.y += meteor.speedY;
+
+    //     // 当流星接近目标时，加快透明度的减少
+    //     const distanceToTarget = Math.hypot(meteor.x - meteor.targetX, meteor.y - meteor.targetY);  // 计算距离
+    //     if (distanceToTarget < 50) {  // 当距离小于50时开始加速渐隐
+    //         meteor.opacity -= 0.08;  // 加快透明度减少速度
+    //     } else if (distanceToTarget < 100) {  // 当接近但还不太近时，稍微减少透明度
+    //         meteor.opacity -= 0.04;
+    //     }
+
+    //     // 确保透明度不低于 0
+    //     if (meteor.opacity <= 0) {
+    //         meteor.opacity = 0;
+    //     }
+    // }
+
+
+
+
+
+
+    // 更新流星位置
+    // function updateMeteor(meteor) {
+    //     meteor.x += meteor.speedX;
+    //     meteor.y += meteor.speedY;
+    //     meteor.opacity -= 0.005;
+    // }
+
+
+
+
+    // // 动画循环
+    // function animate() {
+    //     if(!animationRunning) return;
+    //     meteorCtx.clearRect(0, 0, meteorCanvas.width, meteorCanvas.height);  // 清除画布
+    //     meteors.forEach((meteor, index) => {
+    //         drawMeteor(meteor);
+    //         updateMeteor(meteor);
+    //         // 删除到达目标或消失的流星
+    //         const { targetX, targetY } = getTargetPosition(); // 追踪新的目标
+    //         if (Math.abs(meteor.x - targetX) < 5 && Math.abs(meteor.y - targetY) < 5 || meteor.opacity <= 0) {
+    //             meteors.splice(index, 1);
+    //         }
+    //     });
+    //     requestAnimationFrame(animate);
+    // }
+
+    // // 动画循环
+    // function animate() {
+    //     if (!animationRunning) return;
+
+    //     meteorCtx.clearRect(0, 0, meteorCanvas.width, meteorCanvas.height);  // 清空画布
+
+    //     meteors.forEach((meteor, index) => {
+    //         drawMeteor(meteor);  // 绘制流星和拖尾
+    //         updateMeteor(meteor);  // 更新流星位置和透明度
+
+    //         // 当流星和拖尾的透明度为 0 时，删除流星
+    //         if (meteor.opacity <= 0) {
+    //             meteors.splice(index, 1);  // 从数组中移除
+    //         }
+    //     });
+
+    //     requestAnimationFrame(animate);  // 下一帧继续动画
+    // }
+
+    // 创建流星
+    function createMeteor(mouseX, mouseY) {
+        const { targetX, targetY } = getTargetPosition();  // 锁定目标
+        const distanceToTarget = Math.hypot(targetX - mouseX, targetY - mouseY); // 计算初始距离
+        const meteor = {
+            x: mouseX,  // 当前流星的 X 坐标
+            y: mouseY,  // 当前流星的 Y 坐标
+            targetX: targetX,  // 流星的目标 X 坐标
+            targetY: targetY,  // 流星的目标 Y 坐标
+            speedX: (targetX - mouseX) / 400,  // 降低速度，朝向目标
+            speedY: (targetY - mouseY) / 400,  // 降低速度，朝向目标
+            size: Math.random() * 5 + 7,       // 流星的大小
+            opacity: 1,                        // 初始透明度
+            trail: [],                         // 存储历史位置的数组，用于绘制轨迹
+            totalDistance: distanceToTarget,   // 总距离，用于渐隐
+            fadeStarted: false                 // 是否开始渐隐标志
+        };
+        meteors.push(meteor);  // 将流星添加到流星数组中
+    }
+
+    // 绘制流星和拖尾
+    function drawMeteor(meteor) {
+        // 绘制拖尾
+        meteor.trail.forEach((pos, index) => {
+            const trailOpacity = ((index + 1) / meteor.trail.length) * meteor.opacity;  // 拖尾透明度根据主流星变化
+            meteorCtx.beginPath();
+            meteorCtx.moveTo(pos.x, pos.y);
+            meteorCtx.lineTo(meteor.x, meteor.y);
+            meteorCtx.strokeStyle = `rgba(255, 255, 255, ${trailOpacity})`;  // 拖尾透明度
+            meteorCtx.lineWidth = meteor.size * (1 - trailOpacity);  // 线条随透明度变细
+            meteorCtx.stroke();
+            meteorCtx.closePath();
+        });
+
+        // 绘制流星本体
+        meteorCtx.beginPath();
+        meteorCtx.arc(meteor.x, meteor.y, meteor.size, 0, Math.PI * 2);
+        meteorCtx.fillStyle = `rgba(255, 255, 255, ${meteor.opacity})`;  // 应用透明度
+        meteorCtx.fill();
+        meteorCtx.closePath();
+    }
+
+    // 更新流星位置
+    function updateMeteor(meteor) {
+        // 保存当前的位置到拖尾数组中
+        meteor.trail.push({ x: meteor.x, y: meteor.y });
+
+        // 控制拖尾的长度
+        if (meteor.trail.length > 40) {
+            meteor.trail.shift();
+        }
+
+        // 更新位置
+        meteor.x += meteor.speedX;
+        meteor.y += meteor.speedY;
+
+        // 计算与目标的距离
+        const distanceToTarget = Math.hypot(meteor.targetX - meteor.x, meteor.targetY - meteor.y);
+
+        // 根据总距离来逐渐减少透明度，确保流星从一开始就渐隐
+        meteor.opacity = distanceToTarget / meteor.totalDistance;
+
+        // 当流星接近目标时，标记开始渐隐
+        if (distanceToTarget < 10) {
+            meteor.fadeStarted = true;
+        }
+
+        // 如果开始渐隐，并且透明度大于 0，逐渐减少透明度
+        if (meteor.fadeStarted && meteor.opacity > 0) {
+            meteor.opacity -= 0.02;  // 逐渐减少透明度
+        }
+
+        // 确保透明度不低于 0
+        if (meteor.opacity <= 0) {
+            meteor.opacity = 0;
+        }
+    }
+
+    // 动画循环
+    function animate() {
+        if (!animationRunning) return;
+        meteorCtx.clearRect(0, 0, meteorCanvas.width, meteorCanvas.height);  // 清除画布
+
+        meteors.forEach((meteor, index) => {
+            drawMeteor(meteor);
+            updateMeteor(meteor);
+
+            // 当流星的透明度为 0 或到达目标时，删除流星和其拖尾
+            if (meteor.opacity <= 0 && meteor.fadeStarted) {
+                meteors.splice(index, 1);
+            }
+        });
+
+        requestAnimationFrame(animate);
+    }
+
+
+
+
+    // 处理页面点击事件，生成流星
+    document.addEventListener('click', function (event) {
+        const mouseX = event.clientX;
+        const mouseY = event.clientY;
+        createMeteor(mouseX, mouseY); // 生成流星
+    });
+
+
+    window.onload = function() {
+        const con1_title = document.querySelector('.con1_title');
+        const con1_title2 = document.querySelector('.con1_title2');
+        con1_title.addEventListener('mouseenter', generateRandomText);
+        con1_title2.addEventListener('mouseenter', generateRandomText);
+
+        animate(); // 启动流星动画
+
+        // const targetElements = [
+        //     document.querySelector('.con1_img1 img'),
+        //     document.querySelector('.con2_img3.con2_imgs'),
+        //     document.querySelector('.con1_img3 img')
+        // ]; // 创建包含目标元素的数组
+
+        // let currentTargetIndex = 0; // 当前追踪目标的索引
+
+        // 获取当前目标的中心位置
+
+        // 处理目标元素点击事件，切换目标
+        // targetElements.forEach((targetElement, index) => {
+        //     targetElement.addEventListener('click', function (event) {
+        //         // event.stopPropagation(); // 阻止事件冒泡，避免同时触发页面点击事件
+        //         currentTargetIndex = (currentTargetIndex + 1) % targetElements.length; // 循环切换目标
+        //     });
+        // });
+
+         
+    };
+    
+</script>
+
+
+</body>
+</html>

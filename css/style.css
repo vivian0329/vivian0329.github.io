@@ -1,0 +1,510 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    cursor: none;
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+
+.con1 {
+    width: 100%;
+    height: 100vh;
+    background: url("../image/img1.gif") no-repeat;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    display: block;
+}
+
+.con1_title {
+    position: absolute;
+    top: 35%;
+    right: 20%;
+    color: white;
+    font-size: 4vw;
+    font-family: "Palatino Linotype";
+}
+
+.con1_title2 {
+    position: absolute;
+    top: 65%;
+    right: 10%;
+    color: white;
+    font-size: 3vw;
+    font-family: "Palatino Linotype";
+     }
+
+.ele_img1, .ele_img2, .ele_img3, .ele_img4 {
+    position: absolute;
+    width: 80px;
+    left: 50%;
+    top: 50%;
+    pointer-events: none;
+    z-index: 999;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+
+.box1 {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: white;
+    left: 10%;
+    top: 10%;
+}
+
+.con1_img1 {
+    position: absolute;
+    width: 24%;
+    left: 0%;
+    bottom: 0;
+    transition: transform 0.3s ease;
+}
+.con1_img1 img:hover {
+    transform: scale(1.2); /* Enlarge image on hover */
+}
+
+.con1_img2 {
+    position: absolute;
+    width: 24%;
+    left: 14%;
+    bottom: 0;
+    transition: transform 0.3s ease;
+}
+.con1_img2 img:hover {
+    transform: scale(1.2); /* Enlarge image on hover */
+    transition: background-color 3s;
+}
+
+.con1_img3 {
+    position: absolute;
+    right: -8%;
+    top: 20%;
+    width: 30%;
+    transition: all 0.3s;
+}
+
+.con1_img3:hover {
+    right: 0;
+}
+
+.con2 {
+    width: 100%;
+    height: 100vh;
+    background: url("../image/img6.gif") no-repeat;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    display: none;
+}
+
+.con2_img1 {
+    width: 35%;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    z-index: 3;
+}
+
+.con2_img2 {
+    width: 50%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 20%;
+    z-index: 1;
+}
+
+.con2_img3 {
+    z-index: 4;
+    cursor: pointer;
+    width: 33%;
+    position: absolute;
+    left: 9%;
+    bottom: 15%;
+}
+
+.con2_img4 {
+    z-index: 4;
+    cursor: pointer;
+    width: 33%;
+    position: absolute;
+    left: 0%;
+    bottom: 63%;
+}
+
+.con2_img5 {
+    z-index: 4;
+    cursor: pointer;
+    width: 33%;
+    position: absolute;
+    left: 40%;
+    bottom: 75%;
+}
+
+.con2_img6 {
+    z-index: 4; /* Increased from 5 to 10 */
+    cursor: pointer;
+    width: 33%;
+    position: absolute;
+    left: 65%;
+    bottom: 71%;
+}
+
+.con2_img7 {
+    z-index: 3; 
+    cursor: pointer;
+    width: 33%;
+    position: absolute;
+    left: 68%;
+    bottom: 50%;
+}
+
+.con2_img7 .con2_text {
+    position: absolute;
+    left: 50%; /* 调整水平位置 */
+    top: 60%;  /* 调整垂直位置 */
+    transform: translate(-50%, -50%);
+    z-index: 20; /* 确保文本在顶部 */
+}
+
+.con2_img8 {
+    z-index: 2; 
+    cursor: pointer;
+    width: 36%;
+    position: absolute;
+    left: 65%;
+    bottom: 38%;
+}
+
+
+.con2_img8 .con2_text {
+    position: absolute;
+    left: 50%; /* 调整水平位置 */
+    top: 60%;  /* 调整垂直位置 */
+    transform: translate(-50%, -15%);
+    z-index: 20; /* 确保文本在顶部 */
+
+}
+
+.con2_text {
+    color: white;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    font-family: "Palatino Linotype";
+    font-size: 18px;
+    display: none;
+    
+}
+
+
+
+.crushGif {
+    position: absolute;
+    z-index: 10;
+}
+
+/* 针对每个 .con2_imgs 里的 GIF 进行不同大小和位置调整 */
+.crushGif3 {
+    top: -10%;
+    left: -60%;
+    width: 200%; /* 第一个 GIF 的大小 */
+    height: auto;
+}
+
+.crushGif4 {
+    top: 0%;
+    left: -50%;
+    width: 200%; /* 第二个 GIF 的大小 */
+    height: auto;
+}
+
+.crushGif5 {
+    top: 0%;
+    left: -60%;
+    width: 200%; /* 第二个 GIF 的大小 */
+    height: auto;
+}
+
+.crushGif6 {
+    top: -10%;
+    left: -60%;
+    width: 200%; /* 第二个 GIF 的大小 */
+    height: auto;
+}
+
+.crushGif7 {
+    top: 0%;
+    left: -50%;
+    width: 200%; /* 第二个 GIF 的大小 */
+    height: auto;
+}
+
+.crushGif8 {
+    top: 20%;
+    left: -50%;
+    width: 200%; /* 第二个 GIF 的大小 */
+    height: auto;
+}
+
+
+
+
+
+
+
+
+
+
+.ele1 {
+    position: absolute;
+    width: 7%;
+    height: 25px;
+    /*background-color: white;*/
+    left: 40%;
+    bottom: 60%;
+    z-index: 99;
+}
+
+.ele2 {
+    position: absolute;
+    width: 7%;
+    height: 25px;
+    /*background-color: white;*/
+    left: 58%;
+    bottom: 59%;
+    z-index: 99;
+}
+
+.con3 {
+    width: 100%;
+    height: 100vh;
+    background: url("../image/img6.gif") no-repeat;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    display: none;
+}
+.con3 >video{
+    position: absolute;
+    width: 120%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+.con3_img2{
+    width: 30%;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    z-index: 1;
+}
+
+.con3_img3{
+    display: none; /* 默认隐藏 */
+    width: 30%;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    top: 10%;
+    z-index: 1;
+}
+
+.con3_img3 p {
+    color: red; /* 设置文字颜色为红色 */
+    text-align: center; /* 文字水平居中 */
+    font-weight: bold; /* 加粗文字 */
+    font-size: 24px; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* 垂直居中 */
+    margin: 0;
+}
+
+.con4 {
+    width: 100%;
+    height: 100vh;
+    background: url("../image/img15.gif") no-repeat;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    display: none;
+}
+
+.go_home {
+    width: 100px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 1%;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.go_home:hover {
+    width: 120px;
+}
+
+.con4_img1 {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    right: 0;
+    top: 0;
+}
+
+.con4_img1 > img {
+    opacity: 0.6;
+    height: 100%;
+}
+
+.con4_img2 {
+    width: 30%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.con4_img3 {
+    position: absolute;
+    left: 0;
+    top: -30%;
+    width: 20%;
+    transition: all 0.3s;
+}
+
+.con4_img3 img {
+    opacity: 0.8;
+    transform: rotate(180deg);
+}
+
+.con4_img3:hover {
+    top: 0;
+}
+
+.con4_img4 {
+    width: 25%;
+    position: absolute;
+    right: 5%;
+    bottom: 35%;
+    transition: all 0.3s;
+}
+
+/*.con4_img4:hover {*/
+/*    */
+/*}*/
+.img_active{
+    bottom: 50% !important;
+}
+
+.con4_img5 {
+    width: 25%;
+    position: absolute;
+    right: 5%;
+    bottom: 0%;
+}
+
+.next1 {
+    position: absolute;
+    width: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 2%;
+    z-index: 100;
+    transition: all 0.3s;
+}
+
+.next1:hover {
+    bottom: 0%;
+}
+
+.next2 {
+    position: absolute;
+    width: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 2%;
+    z-index: 100;
+    transition: all 0.3s;
+}
+
+.next2:hover {
+    bottom: 0%;
+}
+.banner{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    /*background: black;*/
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 99;
+    overflow: hidden;
+}
+.banner_left{
+    width: 50%;
+    height: 100%;
+    background: black;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: all 0.6s;
+}
+.banner_right{
+    width: 50%;
+    height: 100%;
+    background: black;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: all 0.6s;
+}
+.con4_img6{
+    position: absolute;
+    width: 30%;
+    left: 40%;
+    top: 20%;
+    transition: all 0.3s;
+    transform: rotate(25deg);
+}
+.con4_img7{
+    position: absolute;
+    width: 30%;
+    left: 30%;
+    top: 50%;
+    transition: all 0.3s;
+    z-index: 9;
+}
+.con4_img8{
+    position: absolute;
+    width: 25%;
+    left: 50%;
+    top: 65%;
+    transform: rotate(-45deg);
+    transition: all 0.3s;
+}
+/* Canvas 样式 */
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;  /* 如果你有其他元素，设置层叠顺序 */
+}
