@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B2B Supplier Dashboard - Wireframe</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f0f0f0;
+            padding: 20px;
+            color: #444;
+        }
+        
+        .container {
+            max-width: 1440px;
+            margin: 0 auto;
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .header {
+            background: #fff;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-weight: 600;
+            font-size: 18px;
+            width: 120px;
+            height: 32px;
+            background: #e0e0e0;
+            border: 1px solid #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+        }
+        
+        .nav {
+            display: flex;
+            gap: 24px;
+        }
+        
+        .nav-item {
+            text-decoration: none;
+            color: #444;
+            font-size: 14px;
+            cursor: pointer;
+            border: none;
+            background: none;
+            padding: 8px 0;
+        }
+        
+        .nav-item.active {
+            border-bottom: 2px solid #444;
+            font-weight: 500;
+        }
+        
+        .profile-icon {
+            width: 32px;
+            height: 32px;
+            background: #e0e0e0;
+            border: 1px solid #ccc;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        
+        .content {
+            padding: 24px;
+            min-height: 600px;
+            position: relative;
+        }
+        
+        .frame {
+            display: none;
+        }
+        
+        .frame.active {
+            display: block;
+        }
+        
+        .frame-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #444;
+        }
+        
+        .frame-annotation {
+            background: #f5f5f5;
+            border-left: 3px solid #999;
+            padding: 12px;
+            margin-bottom: 20px;
+            font-size: 13px;
+            color: #666;
+            font-style: italic;
+        }
+        
+        .status-tabs {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 0;
+        }
+        
+        .status-tab {
+            padding: 12px 16px;
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-size: 14px;
+            color: #999;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -1px;
+            transition: all 0.2s;
+        }
+        
+        .status-tab.active {
+            color: #444;
+            border-bottom-color: #444;
+            font-weight: 500;
+        }
+        
+        .status-badge {
+            background: #e0e0e0;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            margin-left: 6px;
+        }
+        
+        .bulk-action-bar {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+            padding: 12px;
+            background: #f5f5f5;
+            border: 1px solid #e0e0e0;
+            align-items: center;
+        }
+        
+        .checkbox {
+            width: 18px;
+            height: 18px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+        }
+        
+        .bulk-action-bar span {
+            font-size: 13px;
+            color: #666;
+            margin: 0 12px 0 6px;
+        }
+        
+        .bulk-button {
+            padding: 8px 14px;
+            background: #fff;
+            border: 1px solid #ccc;
+            color: #666;
+            font-size: 13px;
+            cursor: pointer;
+            margin-left: auto;
+            transition: all 0.2s;
+        }
+        
+        .bulk-button:hover {
+            background: #f5f5f5;
+        }
+        
+        .filters {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-item {
+            padding: 8px 12px;
+            border: 1px solid #e0e0e0;
+            background: #fff;
+            font-size: 12px;
+            cursor: pointer;
+            color: #666;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .quote-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 2fr;
+            gap: 16px;
+            padding: 16px;
+            border: 1px solid #e0e0e0;
+            margin-bottom: 12px;
+            background: #fff;
+            align-items: center;
+            transition: all 0.2s;
+        }
+        
+        .quote-card:hover {
+            background: #f5f5f5;
+        }
+        
+        .quote-card.highlighted {
+            background: #f0f8ff;
+            border-color: #999;
+        }
+        
+        .card-field {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .card-label {
+            font-size: 11px;
+            color: #999;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+        }
+        
+        .card-value {
+            font-size: 14px;
+            color: #444;
+            font-weight: 500;
+        }
+        
+        .urgency-tag {
+            display: inline-block;
+            padding: 4px 8px;
+            border: 1px solid #999;
+            font-size: 12px;
+            color: #666;
+            width: fit-content;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .btn {
+            padding: 8px 14px;
+            border: 1px solid #999;
+            background: #fff;
+            color: #666;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .btn:hover {
+            background: #f5f5f5;
+        }
+        
+        .btn-primary {
+            background: #666;
+            color: #fff;
+            border-color: #666;
+        }
+        
+        .btn-primary:hover {
+            background: #555;
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #999;
+        }
+        
+        .empty-box {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #e0e0e0;
+            margin: 0 auto 20px;
+            background: #f5f5f5;
+        }
+        
+        .empty-state p {
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+        
+        .side-panel {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 340px;
+            height: 100%;
+            background: #fff;
+            border-left: 1px solid #e0e0e0;
+            padding: 20px;
+            z-index: 100;
+            display: none;
+            overflow-y: auto;
+            box-shadow: -2px 0 8px rgba(0,0,0,0.1);
+        }
+        
+        .side-panel.open {
+            display: block;
+        }
+        
+        .panel-header {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            color: #999;
+        }
+        
+        .form-group {
+            margin-bottom: 16px;
+        }
+        
+        .form-label {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 6px;
+            display: block;
+            text-transform: uppercase;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #e0e0e0;
+            font-size: 13px;
+            background: #fff;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: #999;
+        }
+        
+        .textarea {
+            min-height: 80px;
+            resize: vertical;
+            font-family: inherit;
+        }
+        
+        .panel-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 24px;
+        }
+        
+        .panel-actions .btn {
+            flex: 1;
+            padding: 10px;
+        }
+        
+        .chat-thread {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        .chat-title {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #666;
+            margin-bottom: 12px;
+        }
+        
+        .chat-bubble {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #e0e0e0;
+            background: #f5f5f5;
+            font-size: 12px;
+            line-height: 1.4;
+            color: #666;
+        }
+        
+        .chat-bubble.system {
+            background: #e8e8e8;
+        }
+        
+        .attachment-list {
+            margin-top: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        
+        .attachment-item {
+            padding: 8px;
+            border: 1px solid #e0e0e0;
+            font-size: 12px;
+            color: #666;
+            background: #f5f5f5;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .attachment-icon {
+            width: 20px;
+            height: 20px;
+            background: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+        }
+        
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 200;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-overlay.open {
+            display: flex;
+        }
+        
+        .modal {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            padding: 24px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            border-radius: 4px;
+        }
+        
+        .modal-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #444;
+        }
+        
+        .modal-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+        
+        .confirmed-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 16px;
+        }
+        
+        .confirmed-card {
+            border: 1px solid #e0e0e0;
+            padding: 16px;
+            background: #fff;
+        }
+        
+        .declined-card {
+            border: 1px solid #e0e0e0;
+            padding: 16px;
+            background: #fff;
+            margin-bottom: 12px;
+        }
+        
+        .reason-box {
+            background: #f5f5f5;
+            border-left: 3px solid #999;
+            padding: 12px;
+            margin: 12px 0;
+            font-size: 13px;
+            color: #666;
+        }
+        
+        .frame-nav {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 24px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .frame-btn {
+            padding: 8px 14px;
+            border: 1px solid #ccc;
+            background: #f5f5f5;
+            color: #666;
+            font-size: 12px;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+        
+        .frame-btn.active {
+            background: #666;
+            color: #fff;
+            border-color: #666;
+        }
+        
+        .success-message {
+            background: #e8f5e9;
+            border-left: 3px solid #666;
+            padding: 12px;
+            margin-bottom: 16px;
+            font-size: 13px;
+            color: #444;
+            display: none;
+        }
+        
+        .success-message.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">LOGO</div>
+            <div class="nav">
+                <button class="nav-item active" data-section="orders">Orders</button>
+                <button class="nav-item" data-section="products">Products</button>
+                <button class="nav-item" data-section="customers">Customers</button>
+                <button class="nav-item" data-section="pricing">Pricing</button>
+                <button class="nav-item" data-section="profile">Profile</button>
+            </div>
+            <div class="profile-icon"></div>
+        </div>
+        
+        <div class="content">
+            <!-- Frame Navigation -->
+            <div class="frame-nav">
+                <button class="frame-btn active" data-frame="0">1. Orders Overview</button>
+                <button class="frame-btn" data-frame="1">2. Quote Requests</button>
+                <button class="frame-btn" data-frame="2">3. Quote Panel</button>
+                <button class="frame-btn" data-frame="3">4. Awaiting Confirm</button>
+                <button class="frame-btn" data-frame="4">5. Confirmed Orders</button>
+                <button class="frame-btn" data-frame="5">6. Declined Quotes</button>
+                <button class="frame-btn" data-frame="6">7. Bulk Modal</button>
+                <button class="frame-btn" data-frame="7">8. Chat Overlay</button>
+            </div>
+
+            <!-- FRAME 0: Orders Overview -->
+            <div class="frame active" data-frame="0">
+                <div class="frame-title">Frame 1: Orders Overview</div>
+                <div class="frame-annotation">📌 Landing page showing all order statuses at a glance. Click status tabs to navigate through different quote states.</div>
+                
+                <div class="status-tabs">
+                    <button class="status-tab active">
+                        Pending Quotes <span class="status-badge">24</span>
+                    </button>
+                    <button class="status-tab">
+                        In Progress <span class="status-badge">8</span>
+                    </button>
+                    <button class="status-tab">
+                        Confirmed <span class="status-badge">156</span>
+                    </button>
+                    <button class="status-tab">
+                        Declined <span class="status-badge">3</span>
+                    </button>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;">
+                    <div style="border: 1px solid #e0e0e0; padding: 20px; text-align: center;">
+                        <div style="font-size: 28px; font-weight: 600; color: #666; margin-bottom: 8px;">24</div>
+                        <div style="font-size: 13px; color: #999;">Pending Quotes</div>
+                    </div>
+                    <div style="border: 1px solid #e0e0e0; padding: 20px; text-align: center;">
+                        <div style="font-size: 28px; font-weight: 600; color: #666; margin-bottom: 8px;">8</div>
+                        <div style="font-size: 13px; color: #999;">In Progress</div>
+                    </div>
+                    <div style="border: 1px solid #e0e0e0; padding: 20px; text-align: center;">
+                        <div style="font-size: 28px; font-weight: 600; color: #666; margin-bottom: 8px;">156</div>
+                        <div style="font-size: 13px; color: #999;">Confirmed</div>
+                    </div>
+                    <div style="border: 1px solid #e0e0e0; padding: 20px; text-align: center;">
+                        <div style="font-size: 28px; font-weight: 600; color: #666; margin-bottom: 8px;">3</div>
+                        <div style="font-size: 13px; color: #999;">Declined</div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 32px; padding: 40px; border: 1px dashed #e0e0e0; text-align: center; background: #f5f5f5;">
+                    <div style="font-size: 14px; color: #999; margin-bottom: 12px;">📊 Dashboard Summary View</div>
+                    <div style="font-size: 12px; color: #bbb;">Key metrics and quick actions</div>
+                </div>
+            </div>
+
+            <!-- FRAME 1: Quote Requests (Pending) -->
+            <div class="frame" data-frame="1">
+                <div class="frame-title">Frame 2: Quote Requests (Pending Quotes)</div>
+                <div class="frame-annotation">📌 Default landing tab. Shows pending quote requests in card/row layout. Bulk action bar allows multi-select. Filters and sorting available. Click "Create Quote" to open right side panel.</div>
+                
+                <div class="status-tabs">
+                    <button class="status-tab active">
+                        Pending Quotes <span class="status-badge">24</span>
+                    </button>
+                    <button class="status-tab">In Progress <span class="status-badge">8</span></button>
+                    <button class="status-tab">Confirmed <span class="status-badge">156</span></button>
+                    <button class="status-tab">Declined <span class="status-badge">3</span></button>
+                </div>
+
+                <div class="bulk-action-bar">
+                    <input type="checkbox" class="checkbox">
+                    <span>Select All</span>
+                    <button class="bulk-button" onclick="showFrame(6)">Bulk Quote</button>
+                    <button class="bulk-button">Bulk Cancel</button>
+                </div>
+
+                <div class="filters">
+                    <div class="filter-item">Customer ▼</div>
+                    <div class="filter-item">Date ▼</div>
+                    <div class="filter-item">Quantity ▼</div>
+                    <div class="filter-item">Priority ▼</div>
+                </div>
+
+                <div class="quote-card">
+                    <div class="card-field">
+                        <div class="card-label">Product</div>
+                        <div class="card-value">Olive Oil 5L</div>
+                    </div>
+                    <div class="card-field">
+                        <div class="card-label">Quantity</div>
+                        <div class="card-value">50 units</div>
+                    </div>
+                    <div class="card-field">
+                        <div class="card-label">Customer</div>
+                        <div class="card-value">Mario's Deli</div>
+                    </div>
+                    <div class="card-field">
+                        <div class="card-label">Date</div>
+                        <div class="card-value">Oct 15, 2025</div>
+                    </div>
+                    <div class="card-field">
+                        <div class="card-label">Urgency</div>
+                        <div class="urgency-tag">HIGH</div>
+                    </div>
+                    <div class="card-field">
+                        <div class="action-buttons">
+                            <button class="btn" onclick="showFrame(2)">Create Quote</button>
+                            <button class="btn" onclick="showFrame(2)">View/Edit</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quote-card">
+                    <div class="card-field">
+                        <div class="card-label">Product</div>
+                        <div class="card-value">Pasta Assorted</div>
+                    </div>
+                    <div class="card-field">
+                        <div class="card-label">Quantity</div>
+                        <div class="card-value">100 boxes</div>
+                    </div>
+                    <div class="card-field">
+                        <div class="card-label">Customer</div>
+                        <div class="card-value">Tony's Restaurant</div>
+                    </div>
+                    <div class="card-field">
+                        <div class="card-label">Date</div>
+                        <div class="card-value">Oct 14, 2025</div>
+                    </div>
+                    <div class="card-field">
+                        <div class="card-label">Urgency</div>
+                        <div class="urgency-tag">MEDIUM</div>
+                    </div>
+                    <div class="card-field">
+                        <div class="action-buttons">
+                            <button class="btn" onclick="showFrame(2)">Create Quote</button>
+                            <button class="btn" onclick="showFrame(2)">View/Edit</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quote-card">
+                    <div class="card-field">
+                        <div class="card-label">Product</div>
+                        <div class="card-value">Mozzarella Blocks</div>
+                    </div>
+                    <div class="card-field">
+                        <div class="card-label">Quantity</div>
+                        <div class="card-value">25 kg</div>
+                    </div>
+                    <div class="card-field">
+                        <div class="card-label">Customer</div>
+                        <div class="card-value">Anna's Café</div>
+                    </div>
+                    <div class="card-field">
+                        <div class="card-label">Date</div>
+                        <div class="card-value">Oct 13, 2025</div>
+                    </div>
+                    <div class="card-field">
+                        <div class="card-label">Urgency</div>
+                        <div class="urgency-tag">LOW</div>
+                    </div>
+                    <div class="card-field">
+                        <div class="action-buttons">
+                            <button class="btn" onclick="showFrame(2)">Create Quote</button>
+                            <button class="btn" onclick="showFrame(2)">View/Edit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FRAME 2: Quote Side Panel -->
+            <div class="frame" data-frame="2">
+                <div class="frame-title">Frame 3: Quote Side Panel (Right Slide-In)</div>
+                <div class="frame-annotation">📌 Side panel opens on right. Shows form for Unit Price, Delivery Notes, Date. Includes Save Draft, Auto-Save, Edit, Withdraw, View History buttons. Chat thread with buyer notes below.</div>
+                
+                <div style="display: flex; height: 500px;">
+                    <div style="flex: 1; border: 1px dashed #e0e0e0; padding: 20px; background: #f5f5f5;">
+                        <div style="font-size: 13px; color: #999;">Quote Request Details (Left side - main list)</div>
+                    </div>
+                    
+                    <div class="side-panel open" style="position: relative; width: 340px; height: 100%; right: auto; border-left: 1px solid #e0e0e0; border-right: none;">
+                        <div class="panel-header">
+                            Quote for: Olive Oil 5L
+                            <button class="close-btn">×</button>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Unit Price</label>
+                            <input type="text" class="form-input" placeholder="$0.00">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Delivery Date</label>
+                            <input type="text" class="form-input" placeholder="Select date">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Delivery Notes</label>
+                            <textarea class="form-input textarea" placeholder="Special instructions..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Remarks</label>
+                            <textarea class="form-input textarea" placeholder="Internal notes..."></textarea>
+                        </div>
+
+                        <div class="panel-actions">
+                            <button class="btn">Save Draft</button>
+                            <button class="btn btn-primary">Auto-Save</button>
+                        </div>
+
+                        <div class="panel-actions">
+                            <button class="btn">Edit</button>
+                            <button class="btn">Withdraw</button>
+                        </div>
+
+                        <button class="btn" style="width: 100%; margin-top: 12px;">View History</button>
+
+                        <div class="chat-thread">
+                            <div class="chat-title">Buyer Notes & Chat</div>
+                            <div class="chat-bubble system">Order placed by Mario</div>
+                            <div class="chat-bubble">"Need by Friday if possible"</div>
+                            <div class="chat-bubble system">You: Quote sent</div>
+                            <div class="attachment-list">
+                                <div class="attachment-item">
+                                    <div class="attachment-icon">📎</div>
+                                    <span>order_spec.pdf</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FRAME 3: Awaiting Confirmation -->
+            <div class="frame" data-frame="3">
+                <div class="frame-title">Frame 4: Awaiting Confirmation (In Progress)</div>
+                <div class="frame-annotation">📌 After quote submitted, card moves here with "In Progress" status. Still editable. Shows countdown or "Awaiting buyer response" indicator.</div>
+                
+                <div class="status-tabs">
+                    <button class="status-tab">Pending Quotes <span class="status-badge">24</span></button>
+                    <button class="status-tab active">
+                        In Progress <span class="status-badge">8</span>
+                    </button>
+                    <button class="status-tab">Confirmed <span class="status-badge">156</span></button>
+                    <button class="status-tab">Declined <span class="status-badge">3</span></button>
+                </div>
+
+                <div class="filters">
+                    <div class="filter-item">Customer ▼</div>
+                    <div class="filter-item">Date ▼</div>
+                </div>
+
+                <div class="quote-card">
+                    <div class="card-field">
+                        <div class="card-label">Product</div>
+                        <div class="card-value">Olive Oil 5L</div>
+                    </div>
+                    <div class="card-field">
+                        <div class="card-label">Quantity</div>
+                        <div class="card-value">50 units</div>
+                    </div>
+                    <div class="card-field">
+                        <div class="card-label">Customer</div>
+                        <div class="card-value">Mario's Deli</div>
+                    </div>
+                    <div class="card-field">
+                        <div class="card-label">Quote Date</div>
+                        <div class="card-value">Oct 15</div>
+                    </div>
+                    <div class="card-field">
+                        <div class="card-label">Status</div>
+                        <div class="urgency-tag">AWAITING RESPONSE</div>
+                    </div>
+                    <div class="card-field">
+                        <div class="action-buttons">
+                            <button class="btn">Edit Quote</button>
+                            <button class="btn">View Chat</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quote-card">
+                    <div class="card-field">
+                        <div class="card-label">Product</div>
+                        <div class="card-value">Pasta Assorted</div>
+                    </div>
+                    <div class="card-field">
+                        <div class="card-label">Quantity</div>
+                        <div class="card-value">100 boxes</div>
+                    </div>
+                    <div class="card-field">
+                        <div class="card-label">Customer</div>
+                        <div class="card-value">Tony's Restaurant</div>
+                    </div>
+                    <div class="card-field">
+                        <div class="card-label">Quote Date</div>
+                        <div class="card-value">Oct 14</div>
+                    </div>
+                    <div class="card-field">
+                        <div class="card-label">Status</div>
+                        <div class="urgency-tag">AWAITING RESPONSE</div>
+                    </div>
+                    <div class="card-field">
+                        <div class="action-buttons">
+                            <button class="btn">Edit Quote</button>
+                            <button class="btn">View Chat</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FRAME 4: Confirmed Orders -->
+            <div class="frame" data-frame="4">
+                <div class="frame-title">Frame 5: Confirmed Orders</div>
+                <div class="frame-annotation">📌 Clean card grid layout showing confirmed orders. Each card displays buyer, price, delivery info. Action buttons: Ship, Invoice, Message. Click card to expand details.</div>
+                
+                <div class="status-tabs">
+                    <button class="status-tab">Pending Quotes <span class="status-badge">24</span></button>
+                    <button class="status-tab">In Progress <span class="status-badge">8</span></button>
+                    <button class="status-tab active">
+                        Confirmed <span class="status-badge">156</span>
+                    </button>
+                    <button class="status-tab">Declined <span class="status-badge">3</span></button>
+                </div>
+
+                <div class="confirmed-grid">
+                    <div class="confirmed-card">
+                        <div class="card-field" style="margin-bottom: 12px;">
+                            <div class="card-label">Buyer</div>
+                            <div class="card-value">Mario's Deli</div>
+                        </div>
+                        <div class="card-field" style="margin-bottom: 12px;">
+                            <div class="card-label">Product</div>
+                            <div class="card-value">Olive Oil 5L</div>
+                        </div>
+                        <div class="card-field" style="margin-bottom: 12px;">
+                            <div class="card-label">Price</div>
+                            <div class="card-value">$275.00</div>
+                        </div>
+                        <div class="card-field" style="margin-bottom: 12px;">
+                            <div class="card-label">Delivery</div>
+                            <div class="card-value">Oct 18, 2025</div>
+                        </div>
+                        <div class="card-field" style="margin-bottom: 12px;">
+                            <div class="card-label">Order ID</div>
+                            <div class="card-value">#ORD-8821</div>
+                        </div>
+                        <div class="action-buttons" style="gap: 6px; margin-top: 12px; padding-top: 12px; border-top: 1px solid #e0e0e0;">
+                            <button class="btn" style="flex: 1;">Ship</button>
+                            <button class="btn" style="flex: 1;">Invoice</button>
+                            <button class="btn" style="flex: 1;">Message</button>
+                        </div>
+                    </div>
+
+                    <div class="confirmed-card">
+                        <div class="card-field" style="margin-bottom: 12px;">
+                            <div class="card-label">Buyer</div>
+                            <div class="card-value">Tony's Restaurant</div>
+                        </div>
+                        <div class="card-field" style="margin-bottom: 12px;">
+                            <div class="card-label">Product</div>
+                            <div class="card-value">Pasta Assorted</div>
+                        </div>
+                        <div class="card-field" style="margin-bottom: 12px;">
+                            <div class="card-label">Price</div>
+                            <div class="card-value">$1,240.00</div>
+                        </div>
+                        <div class="card-field" style="margin-bottom: 12px;">
+                            <div class="card-label">Delivery</div>
+                            <div class="card-value">Oct 17, 2025</div>
+                        </div>
+                        <div class="card-field" style="margin-bottom: 12px;">
+                            <div class="card-label">Order ID</div>
+                            <div class="card-value">#ORD-8820</div>
+                        </div>
+                        <div class="action-buttons" style="gap: 6px; margin-top: 12px; padding-top: 12px; border-top: 1px solid #e0e0e0;">
+                            <button class="btn" style="flex: 1;">Ship</button>
+                            <button class="btn" style="flex: 1;">Invoice</button>
+                            <button class="btn" style="flex: 1;">Message</button>
+                        </div>
+                    </div>
+
+                    <div class="confirmed-card">
+                        <div class="card-field" style="margin-bottom: 12px;">
+                            <div class="card-label">Buyer</div>
+                            <div class="card-value">Anna's Café</div>
+                        </div>
+                        <div class="card-field" style="margin-bottom: 12px;">
+                            <div class="card-label">Product</div>
+                            <div class="card-value">Mozzarella Blocks</div>
+                        </div>
+                        <div class="card-field" style="margin-bottom: 12px;">
+                            <div class="card-label">Price</div>
+                            <div class="card-value">$187.50</div>
+                        </div>
+                        <div class="card-field" style="margin-bottom: 12px;">
+                            <div class="card-label">Delivery</div>
+                            <div class="card-value">Oct 16, 2025</div>
+                        </div>
+                        <div class="card-field" style="margin-bottom: 12px;">
+                            <div class="card-label">Order ID</div>
+                            <div class="card-value">#ORD-8819</div>
+                        </div>
+                        <div class="action-buttons" style="gap: 6px; margin-top: 12px; padding-top: 12px; border-top: 1px solid #e0e0e0;">
+                            <button class="btn" style="flex: 1;">Ship</button>
+                            <button class="btn" style="flex: 1;">Invoice</button>
+                            <button class="btn" style="flex: 1;">Message</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FRAME 5: Declined Quotes -->
+            <div class="frame" data-frame="5">
+                <div class="frame-title">Frame 6: Declined Quotes</div>
+                <div class="frame-annotation">📌 Shows rejected quotes with reason displayed. "Resend" button allows re-quoting. Archival option available.</div>
+                
+                <div class="status-tabs">
+                    <button class="status-tab">Pending Quotes <span class="status-badge">24</span></button>
+                    <button class="status-tab">In Progress <span class="status-badge">8</span></button>
+                    <button class="status-tab">Confirmed <span class="status-badge">156</span></button>
+                    <button class="status-tab active">
+                        Declined <span class="status-badge">3</span>
+                    </button>
+                </div>
+
+                <div class="declined-card">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr auto; gap: 16px; align-items: center;">
+                        <div class="card-field">
+                            <div class="card-label">Product</div>
+                            <div class="card-value">Olive Oil 5L</div>
+                        </div>
+                        <div class="card-field">
+                            <div class="card-label">Customer</div>
+                            <div class="card-value">Giuseppe's Market</div>
+                        </div>
+                        <div class="card-field">
+                            <div class="card-label">Quote Date</div>
+                            <div class="card-value">Oct 10</div>
+                        </div>
+                        <div class="card-field">
+                            <div class="card-label">Price</div>
+                            <div class="card-value">$310.00</div>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="btn">Resend</button>
+                        </div>
+                    </div>
+                    <div class="reason-box">
+                        <strong>Rejection Reason:</strong> "Price too high compared to competitor"
+                    </div>
+                </div>
+
+                <div class="declined-card">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr auto; gap: 16px; align-items: center;">
+                        <div class="card-field">
+                            <div class="card-label">Product</div>
+                            <div class="card-value">Pasta Assorted</div>
+                        </div>
+                        <div class="card-field">
+                            <div class="card-label">Customer</div>
+                            <div class="card-value">Bella Trattoria</div>
+                        </div>
+                        <div class="card-field">
+                            <div class="card-label">Quote Date</div>
+                            <div class="card-value">Oct 8</div>
+                        </div>
+                        <div class="card-field">
+                            <div class="card-label">Price</div>
+                            <div class="card-value">$1,350.00</div>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="btn">Resend</button>
+                        </div>
+                    </div>
+                    <div class="reason-box">
+                        <strong>Rejection Reason:</strong> "Delivery timeline doesn't match requirement"
+                    </div>
+                </div>
+
+                <div class="declined-card">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr auto; gap: 16px; align-items: center;">
+                        <div class="card-field">
+                            <div class="card-label">Product</div>
+                            <div class="card-value">Mozzarella Blocks</div>
+                        </div>
+                        <div class="card-field">
+                            <div class="card-label">Customer</div>
+                            <div class="card-label">Sofia's Pizzeria</div>
+                        </div>
+                        <div class="card-field">
+                            <div class="card-label">Quote Date</div>
+                            <div class="card-value">Oct 5</div>
+                        </div>
+                        <div class="card-field">
+                            <div class="card-label">Price</div>
+                            <div class="card-value">$195.00</div>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="btn">Resend</button>
+                        </div>
+                    </div>
+                    <div class="reason-box">
+                        <strong>Rejection Reason:</strong> "Minimum order quantity too high"
+                    </div>
+                </div>
+            </div>
+
+            <!-- FRAME 6: Bulk Quote Modal -->
+            <div class="frame" data-frame="6">
+                <div class="frame-title">Frame 7: Bulk Quote Modal</div>
+                <div class="frame-annotation">📌 Modal overlay appears when "Bulk Quote" is clicked. Allows setting common pricing/terms for multiple selected requests at once.</div>
+                
+                <div style="position: relative; height: 500px;">
+                    <div style="opacity: 0.3; pointer-events: none;">
+                        <div class="status-tabs">
+                            <button class="status-tab active">Pending Quotes</button>
+                        </div>
+                        <div class="bulk-action-bar">
+                            <input type="checkbox" class="checkbox">
+                            <span>3 items selected</span>
+                        </div>
+                    </div>
+
+                    <div class="modal-overlay open" style="position: absolute; background: rgba(0,0,0,0.6);">
+                        <div class="modal">
+                            <div class="modal-title">Bulk Quote for 3 Requests</div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Unit Price</label>
+                                <input type="text" class="form-input" placeholder="Apply same price to all">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Delivery Date</label>
+                                <input type="text" class="form-input" placeholder="Select date">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Delivery Notes</label>
+                                <textarea class="form-input textarea" placeholder="Apply to all orders..."></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Include Items</label>
+                                <div style="border: 1px solid #e0e0e0; padding: 8px; max-height: 120px; overflow-y: auto; background: #f5f5f5;">
+                                    <div style="padding: 6px; border-bottom: 1px solid #e0e0e0; font-size: 12px;">
+                                        <input type="checkbox" checked> Olive Oil 5L - Mario's Deli
+                                    </div>
+                                    <div style="padding: 6px; border-bottom: 1px solid #e0e0e0; font-size: 12px;">
+                                        <input type="checkbox" checked> Pasta Assorted - Tony's Restaurant
+                                    </div>
+                                    <div style="padding: 6px; font-size: 12px;">
+                                        <input type="checkbox" checked> Mozzarella Blocks - Anna's Café
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="display: flex; gap: 8px; margin-top: 20px;">
+                                <button class="btn" style="flex: 1;">Cancel</button>
+                                <button class="btn btn-primary" style="flex: 1;">Send Bulk Quote</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FRAME 7: Chat Overlay -->
+            <div class="frame" data-frame="7">
+                <div class="frame-title">Frame 8: Chat Overlay / Detail Panel</div>
+                <div class="frame-annotation">📌 REKKI-style chat thread. Shows buyer notes, quote history, messages, and attachments. Accessible from any quote card via "View Chat" button.</div>
+                
+                <div style="display: flex; height: 500px; gap: 16px;">
+                    <div style="flex: 1; border: 1px dashed #e0e0e0; padding: 20px; background: #f5f5f5;">
+                        <div style="font-size: 13px; color: #999;">Quote Request (Left list view)</div>
+                    </div>
+
+                    <div style="width: 400px; border: 1px solid #e0e0e0; background: #fff; display: flex; flex-direction: column;">
+                        <div class="panel-header">
+                            Order Chat
+                            <button class="close-btn">×</button>
+                        </div>
+
+                        <div style="flex: 1; padding: 16px; overflow-y: auto; border-bottom: 1px solid #e0e0e0;">
+                            <div class="chat-bubble system">Mario requested quote on Oct 15</div>
+                            <div class="chat-bubble">"Need 50 units of Olive Oil 5L by Friday"</div>
+                            <div class="chat-bubble">"Can you do bulk discount for larger orders?"</div>
+                            
+                            <div style="margin-top: 16px; margin-bottom: 12px; font-size: 11px; color: #999; text-transform: uppercase;">Attachments</div>
+                            <div class="attachment-list">
+                                <div class="attachment-item">
+                                    <div class="attachment-icon">📄</div>
+                                    <span>order_requirements.pdf</span>
+                                </div>
+                                <div class="attachment-item">
+                                    <div class="attachment-icon">📋</div>
+                                    <span>specifications.xlsx</span>
+                                </div>
+                            </div>
+
+                            <div style="margin-top: 16px; margin-bottom: 12px; font-size: 11px; color: #999; text-transform: uppercase;">Quote History</div>
+                            <div class="chat-bubble system">You sent initial quote</div>
+                            <div style="font-size: 12px; color: #999;">Oct 15, 2:30 PM - $275/unit (50 units)</div>
+                            <div class="chat-bubble">"Can you beat $250/unit?"</div>
+                        </div>
+
+                        <div style="padding: 12px; border-top: 1px solid #e0e0e0;">
+                            <input type="text" class="form-input" placeholder="Send message..." style="margin-bottom: 8px;">
+                            <button class="btn btn-primary" style="width: 100%;">Send</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showFrame(frameNum) {
+            const frames = document.querySelectorAll('.frame');
+            const buttons = document.querySelectorAll('.frame-btn');
+            
+            frames.forEach(f => f.classList.remove('active'));
+            buttons.forEach(b => b.classList.remove('active'));
+            
+            document.querySelector(`.frame[data-frame="${frameNum}"]`).classList.add('active');
+            document.querySelector(`.frame-btn[data-frame="${frameNum}"]`).classList.add('active');
+        }
+
+        // Frame navigation
+        document.querySelectorAll('.frame-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                showFrame(e.target.dataset.frame);
+            });
+        });
+
+        // Status tabs navigation within frames
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('status-tab')) {
+                const parent = e.target.parentElement;
+                parent.querySelectorAll('.status-tab').forEach(t => t.classList.remove('active'));
+                e.target.classList.add('active');
+            }
+        });
+    </script>
+</body>
+</html>
