@@ -1,0 +1,42 @@
+{
+  "name": "clayloop",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview --port 4173 --strictPort",
+    "start": "vite build && vite preview --port 4173 --strictPort --open",
+    "typecheck": "tsc -b",
+    "test": "vitest run",
+    "e2e": "node tests/e2e/run-e2e.mjs",
+    "assets": "node scripts/copy-mediapipe.mjs",
+    "postinstall": "node scripts/copy-mediapipe.mjs",
+    "footage": "mkdir -p tools/out && python3 tools/make_synthetic_footage.py public/demo && ffmpeg -loglevel error -y -i public/demo/synthetic-footage.webm -vf \"fps=20,crop=384:223:128:79,scale=128:74:flags=area\" -f rawvideo -pix_fmt rgba tools/out/synthetic-128x74-20fps.rgba"
+  },
+  "dependencies": {
+    "@fontsource/inter": "^5.3.0",
+    "@fontsource/newsreader": "^5.3.0",
+    "@mediapipe/tasks-vision": "^0.10.35",
+    "@react-three/drei": "^10.7.9",
+    "@react-three/fiber": "^9.8.2",
+    "idb": "^8.0.4",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-router-dom": "^7.18.5",
+    "three": "^0.187.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@types/three": "^0.187.0",
+    "@vitejs/plugin-react": "^6.3.0",
+    "fake-indexeddb": "^6.2.8",
+    "jsdom": "^31.0.0",
+    "playwright": "^1.63.0",
+    "typescript": "5.9",
+    "vite": "^8.3.8",
+    "vitest": "^5.1.0"
+  }
+}
