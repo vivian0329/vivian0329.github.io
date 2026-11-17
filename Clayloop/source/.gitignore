@@ -1,0 +1,8 @@
+node_modules
+dist
+public/mediapipe
+tools/out
+*.y4m
+.DS_Store
+test-results
+tsconfig.tsbuildinfo
