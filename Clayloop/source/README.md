@@ -12,6 +12,17 @@ ClayLoop is not a pottery instructor. It gives no instructions, scores, rankings
 
 ---
 
+## Online demo (GitHub Pages)
+
+In the `vivian0329.github.io` repository, this folder is `Clayloop/source/`, and the built app sits one level up in `Clayloop/`, so
+<https://vivian0329.github.io/Clayloop/> opens ClayLoop directly in Chrome. The camera works there (HTTPS), video never leaves the browser, and
+sessions recorded there are stored in that browser only, separately from the local app below. For the exhibition, use the local app: it needs no internet.
+
+To update the online demo after changing the source: `npm run build`, then copy the contents of `dist/` into `Clayloop/`
+(the `vision_wasm_module_internal.*` files in `mediapipe/wasm/` can be left out) and commit.
+
+---
+
 ## Quick start (MacBook, Apple Silicon)
 
 One-time setup, which needs internet:
